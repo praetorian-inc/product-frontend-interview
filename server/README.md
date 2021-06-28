@@ -15,6 +15,7 @@ Returns the vulnerability with the given Id, or `null` otherwise.
 
  - `id`: String
     - Formatted as a UUID
+ - `title`: String
  - `riskRating`: String
  - `file`: String
  - `lineNumber`: integer

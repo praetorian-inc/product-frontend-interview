@@ -1,4 +1,4 @@
-[
+{ "data": [
   {
     "id": "3cb7f3d2-1d30-4ce0-8192-ce2043947183",
     "title": "SQL Injection",
@@ -68,5 +68,6 @@
     "riskRating": "INFO",
     "file": "config.py",
     "lineNumber": "23" 
-  },
+  }
 ]
+}

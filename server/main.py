@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 import json
-
+import time
 
 def create_app(test_config=None):
   # create and configure the app
@@ -16,6 +16,7 @@ def create_app(test_config=None):
     with open("vulnerabilities.json", "r") as fd:
       data = fd.read()
 
+      time.sleep(4)
       all_vulnerabilities = json.loads(data)
       return json.dumps(all_vulnerabilities)
 

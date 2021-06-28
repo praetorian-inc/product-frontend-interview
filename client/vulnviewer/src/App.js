@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { loadAllVulnerabilities, selectAllVulnerabilities } from './redux/vulnerability';
@@ -15,10 +15,17 @@ function App() {
 
   const allVulnerabilities = useSelector(selectAllVulnerabilities);
 
+  console.log(allVulnerabilities);
+
   return (
     <div className="App">
+      {!!allVulnerabilities ? allVulnerabilities.map(vulnerability =>
+        <p>
+          {vulnerability.title}
+        </p>
+      ) : null}
       <p>
-        {allVulnerabilities}
+        "Hello"
       </p>
     </div>
   );

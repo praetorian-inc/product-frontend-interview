@@ -1,5 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+
+import vulnerabilityReducer from './redux/vulnerability';
 
 export default configureStore({
-  reducer: {},
+  reducer: {
+    vulnerability: vulnerabilityReducer,
+  },
 })

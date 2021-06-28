@@ -1,18 +1,19 @@
 import './App.css';
 
 import React, { useState, useEffect } from 'react';
-import { getAllVulnerabilities } from "./service"
+import { useSelector, useDispatch } from 'react-redux';
 
+import { loadAllVulnerabilities, selectAllVulnerabilities } from './redux/vulnerability';
 
 function App() {
 
-  const [allVulnerabilities, setAllVulnerabilities] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setAllVulnerabilities(getAllVulnerabilities());
-  }, []);
+    dispatch(loadAllVulnerabilities());
+  }, [dispatch]);
 
-  console.log(allVulnerabilities);
+  const allVulnerabilities = useSelector(selectAllVulnerabilities);
 
   return (
     <div className="App">

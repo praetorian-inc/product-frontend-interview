@@ -19,14 +19,12 @@ function App() {
 
   return (
     <div className="App">
+
       {!!allVulnerabilities ? allVulnerabilities.map(vulnerability =>
         <p>
           {vulnerability.title}
         </p>
       ) : null}
-      <p>
-        "Hello"
-      </p>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import './App.css';
 
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -36,28 +37,39 @@ function App() {
 
   return (
     <div className="App">
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Vulnerability Id</TableCell>
-              <TableCell>Title</TableCell>
-              <TableCell>Risk Rating</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {!!allVulnerabilities ? allVulnerabilities.map(vulnerability =>
-              <TableRow key={vulnerability.id}>
-                <TableCell>{vulnerability.id}</TableCell>
-                <TableCell>{vulnerability.title}</TableCell>
-                <TableCell>{vulnerability.riskRating}</TableCell>
-              </TableRow>
-            ) : null}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Router>
+        <main>
+          <Route exact path="/" render={({history}) =>
+            <TableContainer component={Paper}>
+              <Table className={classes.table}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Vulnerability Id</TableCell>
+                    <TableCell>Title</TableCell>
+                    <TableCell>Risk Rating</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {!!allVulnerabilities ? allVulnerabilities.map(vulnerability =>
+                    <TableRow key={vulnerability.id} onClick={() => history.push("/vulnerability/" + vulnerability.id) }>
+                      <TableCell>{vulnerability.id}</TableCell>
+                      <TableCell>{vulnerability.title}</TableCell>
+                      <TableCell>{vulnerability.riskRating}</TableCell>
+                    </TableRow>
+                  ) : null}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          } />
+          <Route path="/vulnerability/:vulnerabilityId" render={VulnerabilityDetail} />
+        </main>
+      </Router>
     </div>
   );
 }
+
+const VulnerabilityDetail = ({match:{params:{vulnerabilityId}}}) => {
+  return null;
+};
 
 export default App;

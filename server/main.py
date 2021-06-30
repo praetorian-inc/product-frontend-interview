@@ -25,7 +25,7 @@ def create_app(test_config=None):
     with open("vulnerabilities.json", "r") as fd:
       data = fd.read()
 
-      all_vulnerabilities = json.loads(data)
+      all_vulnerabilities = json.loads(data)["data"]
       vulns_with_id = [v for v in all_vulnerabilities if v["id"] == vulnerabilityId]
 
       if (len(vulns_with_id) == 0):

@@ -19,3 +19,9 @@ Returns the vulnerability with the given Id, or `null` otherwise.
  - `riskRating`: String
  - `file`: String
  - `lineNumber`: integer
+
+### Example vulnerability:
+```{"id": "3cb7f3d2-1d30-4ce0-8192-ce2043947183", "title": "SQL Injection", "riskRating": "CRITICAL", "file": "sql.py", "lineNumber": "34"}```
+
+### Example vulnerability list:
+```{"data": [{"id": "3cb7f3d2-1d30-4ce0-8192-ce2043947183", "title": "SQL Injection", "riskRating": "CRITICAL", "file": "sql.py", "lineNumber": "34"}, ...]}```

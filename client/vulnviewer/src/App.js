@@ -61,7 +61,7 @@ function App() {
               </Table>
             </TableContainer>
           } />
-          <Route path="/vulnerability/:vulnerabilityId" render={VulnerabilityDetail} />
+          <Route path="/vulnerability/:vulnerabilityId" component={VulnerabilityDetail} />
         </main>
       </Router>
     </div>
